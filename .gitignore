@@ -1,0 +1,45 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files
+data/raw/*
+data/processed/*
+!data/raw/README.md
+!data/processed/README.md
+
+# Large local datasets
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.pkl
+*.joblib
+
+# Reports generated locally
+reports/figures/*
+reports/exports/*
+!reports/README.md
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
