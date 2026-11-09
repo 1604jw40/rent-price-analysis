@@ -1,12 +1,27 @@
 # Seoul Rent Price Analysis
 
-전월세 실거래 데이터를 전처리하고 EDA 및 회귀 모델링을 통해 임대료 예측 가능성을 분석한 프로젝트입니다.
+서울 전월세 실거래 데이터를 정리하고 임대료 예측 가능성을 분석하는 프로젝트입니다.
 
-## Overview
+## 현재 공개 상태
 
-이 프로젝트는 서울 전월세 데이터를 기반으로 보증금, 월세, 면적, 자치구, 건축년도, 건물용도 등의 변수를 정리하고 임대료 예측 모델을 구성하는 것을 목표로 합니다.
+**이 저장소는 분석 자료를 정리하기 위한 문서와 폴더 구조를 공개한 상태입니다.** 실행 가능한 분석 노트북·Python 소스·데이터·모델·평가 결과는 아직 포함되어 있지 않습니다. 따라서 저장소만 복제해서 분석을 재현하거나 성능을 검증할 수는 없습니다.
 
-## Project Structure
+기존 프로젝트 요약에 기록된 로컬 분석 작업과 GitHub 공개 범위는 구분합니다. 공개 파일이 없다는 사실이 로컬 작업의 미완료를 의미하지는 않습니다.
+
+| 구분 | 현재 저장소에서 확인할 수 있는 내용 |
+|---|---|
+| 공개됨 | 프로젝트 설명, 폴더별 안내, 의존성 목록, 환경 변수 예시 |
+| 공개 보강 대기 | 전처리·EDA·회귀 모델링 노트북 또는 소스 |
+| 공개 보강 대기 | 데이터 출처·버전·전처리 규칙, 실행 절차, 평가 조건과 결과 |
+| 저장소에 없음 | 원본/가공 CSV, 학습 모델, 분석 그림, 최종 보고서 |
+
+## 분석 목적
+
+보증금, 월세, 면적, 자치구, 건축년도, 건물용도 등의 변수를 바탕으로 서울 임대료의 특성을 살펴보고 예측 모델을 구성합니다. 전세와 월세를 구분한 데이터 정리, 파생 변수 생성, EDA, 회귀 모델 비교와 결과 해석을 다룹니다.
+
+기존 작업 개요는 [프로젝트 요약](docs/project_summary.md)을 참고하세요. 이 문서는 프로젝트 설명이며 실행 코드나 검증된 성능표를 대신하지 않습니다.
+
+## 저장소 구조
 
 ```text
 rent-price-analysis/
@@ -15,86 +30,44 @@ rent-price-analysis/
 ├── .env.example
 ├── requirements.txt
 ├── data/
-│   ├── raw/
-│   │   └── README.md
-│   └── processed/
-│       └── README.md
-├── notebooks/
-│   └── README.md
-├── reports/
-│   └── README.md
-├── src/
-│   └── README.md
-└── docs/
-    └── project_summary.md
+│   ├── raw/README.md
+│   └── processed/README.md
+├── notebooks/README.md
+├── reports/README.md
+├── src/README.md
+└── docs/project_summary.md
 ```
 
-## Data
+## 로컬 자료와 공개 범위
 
-대용량 CSV 파일은 GitHub에 올리지 않습니다. 현재 확인된 로컬 데이터 파일은 다음과 같습니다.
+기존 문서에 기록된 자료 이름은 다음과 같습니다. 현재 로컬 파일의 존재나 최신 내용은 이 저장소에서 확인할 수 없습니다.
 
-```text
-C:\Users\1604j\Downloads\seoul_final_processed_jeonse.csv
-C:\Users\1604j\Downloads\seoul_final_processed_wolse.csv
-```
+- 가공 데이터: `seoul_final_processed_jeonse.csv`, `seoul_final_processed_wolse.csv`
+- 분석 노트북: `seoul_home.ipynb`, `인개론부동산.ipynb`, `인개론PJ_k_fold.ipynb`, `data_process.ipynb`
+- 보고서: `서울_전월세_임대가격예측_비즈니스로직_보고서.docx`
 
-두 파일 모두 GitHub 일반 파일 제한인 100MB를 초과하므로 `.gitignore`에서 제외합니다.
+원본 및 가공 CSV, 모델 파일, 환경 변수 실제 값은 공개 대상에서 제외합니다. 노트북이나 그림을 추가할 때도 개인정보, 인증정보, 사용자별 절대경로, 원본 행 출력, 대용량 출력과 데이터 이용 조건을 먼저 점검해야 합니다.
 
-## Local Source Files
+## 환경과 재현 조건
 
-현재 로컬에서 확인된 분석 파일은 다음과 같습니다.
+`requirements.txt`에는 Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Jupyter 관련 패키지가 기재되어 있습니다. 버전은 고정되어 있지 않으며, 현재 실행 진입점이 없으므로 의존성 설치만으로 분석을 실행할 수 없습니다.
 
-```text
-C:\Users\1604j\Downloads\seoul_home.ipynb
-C:\Users\1604j\Downloads\인개론부동산.ipynb
-C:\Users\1604j\Downloads\인개론PJ_k_fold.ipynb
-C:\Users\1604j\Downloads\data_process.ipynb
-C:\Users\1604j\Downloads\서울_전월세_임대가격예측_비즈니스로직_보고서.docx
-```
+재현 가능한 공개본에는 아래 정보가 추가로 필요합니다.
 
-GitHub에는 우선 프로젝트 구조와 설명을 올리고, 노트북은 개인정보나 절대경로, 대용량 출력이 없는지 확인한 뒤 선별적으로 추가하는 것을 권장합니다.
+1. 정확한 데이터 출처, 사용 기간·버전, 이용 조건과 준비 방법
+2. 전세·월세별 타깃 정의, 단위, 정제·제외 기준과 파생 변수 계산식
+3. 실제 노트북 또는 소스의 실행 순서, 검증한 패키지 버전과 랜덤 시드
+4. 학습·검증·테스트 분리 기준과 평가 지표, 동일 조건의 모델 비교표
 
-## Tech Stack
+향후 평가에서는 예측 시점 이후에만 알 수 있는 변수, 동일 계약·주택의 중복, 시간·지역별 분포 차이를 점검해야 합니다. 전처리와 모델 선택은 학습·검증 데이터 안에서 수행하고 최종 테스트를 별도로 유지하는 것이 필요합니다. 이는 검증 체크리스트이며, 현재 구현되었다는 의미는 아닙니다.
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Jupyter Notebook
-- Matplotlib / Seaborn
+## 다음 정비 항목
 
-## Workflow
+- [x] GitHub 저장소와 문서 구조 마련
+- [x] 공개 자료와 로컬 자료의 범위 구분
+- [ ] 로컬 분석본 검토 후 공개 가능한 코드만 선별
+- [ ] 데이터 준비 및 재현 절차 작성
+- [ ] 실제 실행 근거가 있는 평가표와 대표 그림 추가
+- [ ] 검증된 실행 환경과 알려진 한계 기록
 
-1. Raw data preparation
-2. Data cleaning
-3. Feature engineering
-4. EDA
-5. Regression modeling
-6. Evaluation
-7. Report summary
-
-## GitHub Upload Policy
-
-Included:
-
-- README and documentation
-- Project folder structure
-- Requirements file
-- Environment variable template
-
-Excluded:
-
-- `.env`
-- Raw and processed CSV data
-- Model artifacts
-- Cache files
-- Notebook checkpoints
-- Local-only files
-
-## Next Steps
-
-- [ ] Clean notebooks and remove local absolute paths
-- [ ] Add representative plots to `reports/figures/`
-- [ ] Add model evaluation table
-- [ ] Write detailed troubleshooting section
-- [ ] Create GitHub repository
+실측 근거가 공개되기 전에는 성능 수치나 모델 완료 여부를 확정 결과로 제시하지 않습니다.
